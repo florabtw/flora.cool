@@ -4,9 +4,13 @@ import ReactDOM from "react-dom";
 import Bubble from "./Bubble";
 
 const Chat = () => {
+  const handleClick = () => {
+    console.log("Click!");
+  };
+
   return ReactDOM.createPortal(
     <Overlay>
-      <Bubble />
+      <Bubble onClick={handleClick} />
       <ChatBox>
         <ol>
           <li>Hello world!</li>
