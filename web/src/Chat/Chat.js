@@ -2,6 +2,8 @@ import styled from "styled-components";
 import ReactDOM from "react-dom";
 
 import Bubble from "./Bubble";
+import Draggable from "components/Draggable";
+import Frame from "./Frame";
 
 const Chat = () => {
   const handleClick = () => {
@@ -10,13 +12,15 @@ const Chat = () => {
 
   return ReactDOM.createPortal(
     <Overlay>
-      <Bubble onClick={handleClick} />
-      <ChatBox>
-        <ol>
-          <li>Hello world!</li>
-          <li>Hi back!</li>
-        </ol>
-      </ChatBox>
+      <Draggable>
+        <Bubble onClick={handleClick} />
+        <Frame>
+          <ol>
+            <li>Hello world!</li>
+            <li>Hi back!</li>
+          </ol>
+        </Frame>
+      </Draggable>
     </Overlay>,
     document.getElementById("chat")
   );
@@ -29,10 +33,6 @@ const Overlay = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-`;
-
-const ChatBox = styled.div`
-  display: none;
 `;
 
 export default Chat;

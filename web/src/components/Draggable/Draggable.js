@@ -1,20 +1,16 @@
 import React from "react";
+import styled from "styled-components";
 
 const clampX = (x) => Math.min(Math.max(8, x), document.body.offsetWidth - 8);
 const clampY = (y) => Math.min(Math.max(8, y), document.body.offsetHeight - 8);
 
-const Draggable = ({ children, onClick }) => {
+const Draggable = ({ children }) => {
   const targetRef = React.useRef();
-  const [dragged, setDragged] = React.useState(false);
   const [dragging, setDragging] = React.useState(false);
 
   React.useEffect(() => {
     const handleDrag = (event) => {
       if (!dragging) return;
-      setDragged(true);
-
-      if (!targetRef?.current)
-        throw new Error("Could not find Chat Bubble element!");
 
       const targetEvent = event.targetTouches?.[0] || event;
 
@@ -42,22 +38,37 @@ const Draggable = ({ children, onClick }) => {
       document.body.removeEventListener("mouseleave", handleMouseLeave);
   }, []);
 
-  const handleDragStart = () => setDragging(true);
+  const handleDragStart = (event) => {
+    const handle =
+      targetRef?.current?.querySelector("[data-draghandle]") ||
+      targetRef.current;
 
-  const handleDragEnd = () => {
-    if (!dragged) onClick();
+    if (!handle) throw new Error("Could not find a drag handle");
+    if (!handle.contains(event.target)) return;
 
-    setDragging(false);
-    setDragged(false);
+    setDragging(true);
   };
 
-  return React.cloneElement(React.Children.only(children), {
-    onMouseDown: handleDragStart,
-    onMouseUp: handleDragEnd,
-    onTouchStart: handleDragStart,
-    onTouchEnd: handleDragEnd,
-    ref: targetRef,
-  });
+  const handleDragEnd = () => setDragging(false);
+
+  return (
+    <DragArea
+      onMouseDown={handleDragStart}
+      onMouseUp={handleDragEnd}
+      onTouchStart={handleDragStart}
+      onTouchEnd={handleDragEnd}
+      ref={targetRef}
+    >
+      {children}
+    </DragArea>
+  );
 };
+
+const DragArea = styled.div`
+  left: 8px;
+  top: 60px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+`;
 
 export default Draggable;
