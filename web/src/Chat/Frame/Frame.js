@@ -20,7 +20,7 @@ const REPOSITION = {
 
 const defaultPosition = { vertical: "bottom", horizontal: "right" };
 
-const Frame = ({ children }) => {
+const Frame = ({ children, hide }) => {
   const frameRef = React.useRef();
   const [position, setPosition] = React.useState(defaultPosition);
 
@@ -34,7 +34,7 @@ const Frame = ({ children }) => {
 
         if (isSamePosition(position, repositioned)) return;
 
-        setPosition(repositioned);
+        setTimeout(() => setPosition(repositioned), 300);
       },
       { threshold: 0.75 }
     );
@@ -42,9 +42,10 @@ const Frame = ({ children }) => {
     observer.observe(frameRef.current);
 
     return () => observer.disconnect();
-  }, [position]);
+  }, [position, hide]);
 
   const style = {
+    "--display": hide ? "none" : "block",
     ...POSITION_STYLES[position.horizontal],
     ...POSITION_STYLES[position.vertical],
   };
@@ -68,6 +69,7 @@ const Styled = styled.div`
   border-radius: 8px;
   bottom: var(--bottom, unset);
   color: white; // TODO not the right place
+  display: var(--display);
   filter: drop-shadow(2px 4px 8px hsl(0deg 0% 0% / 0.6));
   height: 250px;
   left: var(--left, unset);

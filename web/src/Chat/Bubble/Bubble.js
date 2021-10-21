@@ -4,9 +4,11 @@ import styled from "styled-components";
 import Avatar from "components/Avatar";
 import { COLORS } from "../../constants";
 
-const Bubble = ({ onClick }) => {
+const Bubble = ({ dragged, onClick }) => {
+  const handleClick = () => !dragged && onClick();
+
   return (
-    <FloatingButton data-draghandle onClick={onClick}>
+    <FloatingButton data-draghandle onClick={handleClick}>
       <Avatar />
     </FloatingButton>
   );

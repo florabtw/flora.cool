@@ -1,20 +1,21 @@
-import styled from "styled-components";
+import React from "react";
 import ReactDOM from "react-dom";
+import styled from "styled-components";
 
 import Bubble from "./Bubble";
 import Draggable from "components/Draggable";
 import Frame from "./Frame";
 
 const Chat = () => {
-  const handleClick = () => {
-    console.log("Click!");
-  };
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => setOpen((o) => !o);
 
   return ReactDOM.createPortal(
     <Overlay>
       <Draggable>
         <Bubble onClick={handleClick} />
-        <Frame>
+        <Frame hide={!open}>
           <ol>
             <li>Hello world!</li>
             <li>Hi back!</li>

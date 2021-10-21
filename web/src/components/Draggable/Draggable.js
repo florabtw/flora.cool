@@ -6,11 +6,27 @@ const clampY = (y) => Math.min(Math.max(8, y), document.body.offsetHeight - 8);
 
 const Draggable = ({ children }) => {
   const targetRef = React.useRef();
-  const [dragging, setDragging] = React.useState(false);
+  const [state, dispatch] = React.useReducer(
+    (state, action) => {
+      switch (action.type) {
+        case "start":
+          return { dragging: true, dragged: false };
+        case "dragged":
+          return { ...state, dragged: true };
+        case "end":
+          return { ...state, dragging: false };
+        default:
+          throw new Error("Unknown action type in Draggable");
+      }
+    },
+    { dragging: false, dragged: false }
+  );
 
   React.useEffect(() => {
     const handleDrag = (event) => {
-      if (!dragging) return;
+      if (!state.dragging) return;
+
+      dispatch({ type: "dragged" });
 
       const targetEvent = event.targetTouches?.[0] || event;
 
@@ -28,10 +44,10 @@ const Draggable = ({ children }) => {
       window.removeEventListener("mousemove", handleDrag);
       window.removeEventListener("touchmove", handleDrag);
     };
-  }, [dragging]);
+  }, [state.dragging]);
 
   React.useEffect(() => {
-    const handleMouseLeave = () => setDragging(false);
+    const handleMouseLeave = () => dispatch({ type: "end" });
 
     document.body.addEventListener("mouseleave", handleMouseLeave);
     return () =>
@@ -40,16 +56,15 @@ const Draggable = ({ children }) => {
 
   const handleDragStart = (event) => {
     const handle =
-      targetRef?.current?.querySelector("[data-draghandle]") ||
-      targetRef.current;
+      targetRef.current.querySelector("[data-draghandle]") || targetRef.current;
 
     if (!handle) throw new Error("Could not find a drag handle");
     if (!handle.contains(event.target)) return;
 
-    setDragging(true);
+    dispatch({ type: "start" });
   };
 
-  const handleDragEnd = () => setDragging(false);
+  const handleDragEnd = () => dispatch({ type: "end" });
 
   return (
     <DragArea
@@ -59,7 +74,9 @@ const Draggable = ({ children }) => {
       onTouchEnd={handleDragEnd}
       ref={targetRef}
     >
-      {children}
+      {React.Children.map(children, (child) =>
+        React.cloneElement(child, state)
+      )}
     </DragArea>
   );
 };
