@@ -18,7 +18,6 @@ const reposition = ({ boundingClientRect: bcr, intersectionRect: ir }) => {
 const defaultPosition = { vertical: "bottom", horizontal: "right" };
 
 const Float = ({ children, open }) => {
-  const timer = React.useRef();
   const frameRef = React.useRef();
   const [position, setPosition] = React.useState(defaultPosition);
 
@@ -31,13 +30,9 @@ const Float = ({ children, open }) => {
 
         if (isSamePosition(position, repositioned)) return;
 
-        if (timer.current) clearTimeout(timer.current);
-
-        timer.current = setTimeout(() => {
-          setPosition(repositioned);
-        }, 300);
+        setPosition(repositioned);
       },
-      { threshold: 0.85 }
+      { threshold: 0.9 }
     );
 
     observer.observe(frameRef.current);
@@ -60,20 +55,20 @@ const Float = ({ children, open }) => {
 
 /* 30px adjustments are due to the transform on the <Bubble /> */
 const POSITION_STYLES = {
-  bottom: { "--top": "-30px" },
-  left: { "--right": "calc(100% + 30px + 12px)" },
-  right: { "--left": "calc(100% - 30px + 12px)" },
-  top: { "--bottom": "30px" },
+  bottom: { "--vertical": "-30px" },
+  left: { "--horizontal": "calc(-100% - 30px - 12px)" },
+  right: { "--horizontal": "calc(30px + 12px)" },
+  top: { "--vertical": "calc(-100% + 30px)" },
 };
 
 const Styled = styled(Base)`
-  bottom: var(--bottom, unset);
   display: var(--display);
   height: 350px;
-  left: var(--left, unset);
+  left: 0;
   position: absolute;
-  right: var(--right, unset);
-  top: var(--top, unset);
+  top: 0;
+  transform: translate(var(--horizontal), var(--vertical));
+  transition: transform ease 300ms;
   width: 300px;
 `;
 
