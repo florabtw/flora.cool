@@ -7,8 +7,11 @@ import { COLORS } from "constants.js";
 const Bubble = ({ dragged, onClick }) => {
   const handleClick = () => !dragged && onClick();
 
+  const handleKeyUp = ({ key }) =>
+    (key === "Enter" || key === " ") && onClick();
+
   return (
-    <FloatingButton data-draghandle onClick={handleClick}>
+    <FloatingButton data-draghandle onClick={handleClick} onKeyUp={handleKeyUp}>
       <Avatar />
     </FloatingButton>
   );
