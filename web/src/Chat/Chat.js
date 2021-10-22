@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
+import App from "./App";
 import Bubble from "./Bubble";
 import Draggable from "components/Draggable";
 import Frame from "./Frame";
@@ -19,12 +20,13 @@ const Chat = () => {
 
   return ReactDOM.createPortal(
     <Overlay>
-      <Draggable defaultPosition={{ x: "8px", y: "60px" }} position={position}>
+      <Draggable
+        defaultPosition={{ x: 1, y: 10 }}
+        position={position}
+        role="dialog"
+      >
         <Frame open={open}>
-          <ol>
-            <li>Hello world!</li>
-            <li>Hi back!</li>
-          </ol>
+          <App />
         </Frame>
         <Bubble onClick={handleClick} />
       </Draggable>

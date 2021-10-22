@@ -14,6 +14,8 @@ const reducer = (state, action) => {
       return { ...state, dragged: true, position: action.payload };
     case "end":
       return { ...state, dragging: false };
+    case "step":
+      return { ...state, position: { ...state.position, ...action.payload } };
     default:
       throw new Error("Unknown action type in Draggable");
   }
@@ -23,7 +25,7 @@ const Draggable = ({ children, defaultPosition, position: forcePosition }) => {
   const [state, dispatch] = React.useReducer(reducer, {
     dragging: false,
     dragged: false,
-    position: defaultPosition ?? { x: "0px", y: "0px" },
+    position: defaultPosition ?? { x: 0, y: 0 },
   });
 
   const targetRef = React.useRef();
@@ -38,8 +40,8 @@ const Draggable = ({ children, defaultPosition, position: forcePosition }) => {
       const xPixels = clampX(targetEvent.pageX);
       const yPixels = clampY(targetEvent.pageY);
 
-      const x = ((xPixels / window.innerWidth) * 100).toFixed(2) + "%";
-      const y = ((yPixels / window.innerHeight) * 100).toFixed(2) + "%";
+      const x = ((xPixels / window.innerWidth) * 100).toFixed(2);
+      const y = ((yPixels / window.innerHeight) * 100).toFixed(2);
 
       dispatch({ type: "dragged", payload: { x, y } });
     };
@@ -73,14 +75,37 @@ const Draggable = ({ children, defaultPosition, position: forcePosition }) => {
 
   const handleDragEnd = () => dispatch({ type: "end" });
 
+  const handleKeyUp = (event) => {
+    const payload = {};
+
+    switch (event.key) {
+      case "ArrowLeft":
+        payload.x = Math.max(state.position.x - 10, 1);
+        break;
+      case "ArrowRight":
+        payload.x = Math.min(state.position.x + 10, 99);
+        break;
+      case "ArrowDown":
+        payload.y = Math.min(state.position.y + 10, 99);
+        break;
+      case "ArrowUp":
+        payload.y = Math.max(state.position.y - 10, 1);
+        break;
+      default:
+    }
+
+    dispatch({ type: "step", payload });
+  };
+
   const style = {
     "--transition": state.dragging && "none",
-    "--x": `${forcePosition?.x ?? state.position.x}`,
-    "--y": `${forcePosition?.y ?? state.position.y}`,
+    "--x": forcePosition.x ?? state.position.x + "%",
+    "--y": forcePosition.y ?? state.position.y + "%",
   };
 
   return (
     <DragArea
+      onKeyUp={handleKeyUp}
       onMouseDown={handleDragStart}
       onMouseUp={handleDragEnd}
       onTouchStart={handleDragStart}
