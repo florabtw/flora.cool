@@ -1,18 +1,24 @@
 import styled from "styled-components";
 
+import Header from "./Header";
+import InputArea from "./InputArea";
+import Messages from "./Messages";
+
 const App = () => {
   return (
     <Wrapper>
-      <ol>
-        <li>Hello world!</li>
-        <li>Hi back!</li>
-      </ol>
+      <Header />
+      <Messages />
+      <InputArea />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `;
 
 export default App;

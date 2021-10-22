@@ -63,7 +63,7 @@ const POSITION_STYLES = {
 
 const Styled = styled(Base)`
   display: var(--display);
-  height: 350px;
+  height: 400px;
   left: 0;
   position: absolute;
   top: 0;
