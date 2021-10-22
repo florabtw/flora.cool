@@ -1,10 +1,15 @@
 import styled from "styled-components";
+import { COLORS } from "constants.js";
+
+import { ReactComponent as SendIcon } from "./send.svg";
 
 const InputArea = () => {
   return (
     <Wrapper>
-      <TextInput type="text" />
-      <SubmitButton>&gt;</SubmitButton>
+      <TextInput focus type="text" />
+      <SubmitButton>
+        <SendIcon />
+      </SubmitButton>
     </Wrapper>
   );
 };
@@ -16,23 +21,58 @@ const Wrapper = styled.div`
 `;
 
 const TextInput = styled.input`
-  border-radius: 18px;
-  border: none;
+  background: hsl(0 0% 35%);
+  border-radius: 20px;
   box-shadow: 0px 4px 8px hsl(0 0% 0% / 0.6);
-  height: 36px;
+  border: none;
+  color: inherit;
+  height: 40px;
   font-size: 1rem;
   flex: 1;
   padding: 0px 12px;
   width: 0px;
+
+  &:focus-visible {
+    outline: 2px solid ${COLORS.primaryLight};
+  }
 `;
 
 const SubmitButton = styled.button`
-  background: white;
-  border-radius: 50%;
+  background: ${COLORS.primary};
+  border-radius: 20px;
   border: none;
   box-shadow: 0px 4px 8px hsl(0 0% 0% / 0.6);
-  height: 36px;
-  flex: 0 0 36px;
+  color: ${COLORS.textLight};
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  flex: 0 0 40px;
+
+  &:focus-visible {
+    outline: 2px solid ${COLORS.primaryLight};
+  }
+
+  &:hover {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      background: white;
+      bottom: 0;
+      content: "";
+      left: 0;
+      opacity: 0.04;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  svg {
+    margin: auto;
+    position: relative;
+    left: 2px;
+  }
 `;
 
 export default InputArea;

@@ -4,12 +4,14 @@ import { COLORS } from "constants.js";
 
 const STYLES = {
   received: {
-    "--background": COLORS.primary,
     "--align-self": "flex-start",
+    "--background": COLORS.primaryLight,
+    "--color": COLORS.textDark,
   },
   sent: {
-    "--background": "hsl(0 0% 35%)",
     "--align-self": "flex-end",
+    "--background": "hsl(0 0% 35%)",
+    "--color": COLORS.textLight,
   },
 };
 
@@ -24,6 +26,7 @@ const MessageBubble = styled.div`
   background: var(--background);
   border-radius: 24px;
   box-shadow: 0px 2px 4px hsl(0 0% 0% / 0.2);
+  color: var(--color);
   max-width: 80%;
   padding: 8px 12px;
 `;

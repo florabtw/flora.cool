@@ -29,8 +29,12 @@ const FloatingButton = styled.button`
   pointer-events: initial;
   transform: translate(-50%, -50%);
 
-  &:focus-visible {
-    outline: 2px solid ${COLORS.primary};
+  &:focus {
+    outline: 2px solid ${COLORS.primaryLight};
+  }
+
+  &:hover {
+    transform: translate(-50%, -50%) scale(1.05);
   }
 `;
 

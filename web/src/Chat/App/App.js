@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { COLORS } from "constants.js";
+
 import Header from "./Header";
 import InputArea from "./InputArea";
 import Messages from "./Messages";
@@ -15,7 +17,7 @@ const App = () => {
 };
 
 const Wrapper = styled.div`
-  color: white;
+  color: ${COLORS.textLight};
   display: flex;
   flex-direction: column;
   height: 100%;
