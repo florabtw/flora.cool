@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { BREAKPOINTS } from "constants.js";
+
 const clampX = (x) => Math.min(Math.max(8, x), document.body.offsetWidth - 8);
 const clampY = (y) => Math.min(Math.max(8, y), document.body.offsetHeight - 8);
 
@@ -98,6 +100,12 @@ const DragArea = styled.div`
   position: fixed;
   top: var(--y, 0px);
   transition: var(--transition, left ease 200ms, top ease 200ms);
+
+  @media (min-width: ${BREAKPOINTS.chat.stretch}px) {
+    & {
+      transition: none;
+    }
+  }
 `;
 
 export default Draggable;
