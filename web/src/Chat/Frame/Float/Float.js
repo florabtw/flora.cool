@@ -15,7 +15,7 @@ const reposition = ({ boundingClientRect: bcr, intersectionRect: ir }) => {
   return position;
 };
 
-const defaultPosition = { vertical: "bottom", horizontal: "right" };
+const defaultPosition = { vertical: "top", horizontal: "left" };
 
 const Float = ({ children, open }) => {
   const frameRef = React.useRef();

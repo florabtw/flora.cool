@@ -21,11 +21,16 @@ const reducer = (state, action) => {
   }
 };
 
+const toPercent = ({ x, y }) => ({
+  x: ((x / window.innerWidth) * 100).toFixed(2),
+  y: ((y / window.innerHeight) * 100).toFixed(2),
+});
+
 const Draggable = ({ children, defaultPosition, position: forcePosition }) => {
   const [state, dispatch] = React.useReducer(reducer, {
     dragging: false,
     dragged: false,
-    position: defaultPosition ?? { x: 0, y: 0 },
+    position: defaultPosition ? toPercent(defaultPosition) : { x: 0, y: 0 },
   });
 
   const targetRef = React.useRef();
@@ -37,13 +42,11 @@ const Draggable = ({ children, defaultPosition, position: forcePosition }) => {
 
       const targetEvent = event.targetTouches?.[0] || event;
 
-      const xPixels = clampX(targetEvent.pageX);
-      const yPixels = clampY(targetEvent.pageY);
+      const x = clampX(targetEvent.pageX);
+      const y = clampY(targetEvent.pageY);
+      const payload = toPercent({ x, y });
 
-      const x = ((xPixels / window.innerWidth) * 100).toFixed(2);
-      const y = ((yPixels / window.innerHeight) * 100).toFixed(2);
-
-      dispatch({ type: "dragged", payload: { x, y } });
+      dispatch({ type: "dragged", payload });
     };
 
     window.addEventListener("mousemove", handleDrag);

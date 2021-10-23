@@ -20,7 +20,13 @@ const Chat = () => {
 
   return ReactDOM.createPortal(
     <Overlay>
-      <Draggable defaultPosition={{ x: 1, y: 10 }} position={position}>
+      <Draggable
+        defaultPosition={{
+          x: windowSize.width - 50,
+          y: windowSize.height - 50,
+        }}
+        position={position}
+      >
         <Bubble onClick={handleClick} />
         <Frame open={open}>
           <App />
