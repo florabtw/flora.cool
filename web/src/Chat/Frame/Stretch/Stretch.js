@@ -4,14 +4,14 @@ import styled from "styled-components";
 import Base from "../Base";
 
 const Stretch = ({ children, open }) => {
+  const timer = React.useRef();
   const [display, setDisplay] = React.useState(open ? "block" : "none");
 
   React.useEffect(() => {
-    if (open) {
-      setTimeout(() => setDisplay("block"), 200);
-    } else {
-      setDisplay("none");
-    }
+    if (timer.current) clearTimeout(timer.current);
+
+    if (open) timer.current = setTimeout(() => setDisplay("block"), 200);
+    else setDisplay("none");
   }, [open]);
 
   const style = {
