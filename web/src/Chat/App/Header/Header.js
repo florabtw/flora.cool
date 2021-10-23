@@ -3,7 +3,15 @@ import styled from "styled-components";
 const Header = () => {
   return (
     <Styled>
-      <Heading id="chat-heading">Flora Moon</Heading>
+      <Heading id="chat-heading">
+        <span aria-label="flower" role="img">
+          🌷
+        </span>{" "}
+        Flora Moon{" "}
+        <span aria-label="moon" role="img">
+          🌙
+        </span>
+      </Heading>
     </Styled>
   );
 };
