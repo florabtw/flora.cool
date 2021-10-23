@@ -8,7 +8,7 @@ import Messages from "./Messages";
 
 const App = () => {
   return (
-    <Wrapper>
+    <Wrapper role="dialog" aria-labelledby="chat-heading">
       <Header />
       <Messages />
       <InputArea />

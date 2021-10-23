@@ -20,15 +20,11 @@ const Chat = () => {
 
   return ReactDOM.createPortal(
     <Overlay>
-      <Draggable
-        defaultPosition={{ x: 1, y: 10 }}
-        position={position}
-        role="dialog"
-      >
+      <Draggable defaultPosition={{ x: 1, y: 10 }} position={position}>
+        <Bubble onClick={handleClick} />
         <Frame open={open}>
           <App />
         </Frame>
-        <Bubble onClick={handleClick} />
       </Draggable>
     </Overlay>,
     document.getElementById("chat")

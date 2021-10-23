@@ -5,13 +5,13 @@ import { COLORS } from "constants.js";
 const STYLES = {
   received: {
     "--align-self": "flex-start",
-    "--background": COLORS.primaryLight,
-    "--color": COLORS.textDark,
+    "--background": "hsl(0 0% 35%)",
+    "--color": COLORS.textLight,
   },
   sent: {
     "--align-self": "flex-end",
-    "--background": "hsl(0 0% 35%)",
-    "--color": COLORS.textLight,
+    "--background": COLORS.primaryLight,
+    "--color": COLORS.textDark,
   },
 };
 

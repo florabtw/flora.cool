@@ -1,4 +1,5 @@
 import React from "react";
+import VisuallyHidden from "@reach/visually-hidden";
 import styled from "styled-components";
 
 import Avatar from "components/Avatar";
@@ -12,6 +13,7 @@ const Bubble = ({ dragged, onClick }) => {
 
   return (
     <FloatingButton data-draghandle onClick={handleClick} onKeyUp={handleKeyUp}>
+      <VisuallyHidden>Open chat</VisuallyHidden>
       <Avatar />
     </FloatingButton>
   );
@@ -27,7 +29,9 @@ const FloatingButton = styled.button`
   margin: 0;
   padding: 0;
   pointer-events: initial;
+  position: relative;
   transform: translate(-50%, -50%);
+  z-index: 2;
 
   &:focus {
     outline: 2px solid ${COLORS.primaryLight};

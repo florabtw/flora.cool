@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Base from "../Base";
 
 const Stretch = ({ children, open }) => {
-  const [display, setDisplay] = React.useState("none");
+  const [display, setDisplay] = React.useState(open ? "block" : "none");
 
   React.useEffect(() => {
     if (open) {

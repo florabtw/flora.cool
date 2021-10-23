@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Header = () => {
   return (
     <Styled>
-      <Heading>Flora Moon</Heading>
+      <Heading id="chat-heading">Flora Moon</Heading>
     </Styled>
   );
 };

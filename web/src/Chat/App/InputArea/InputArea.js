@@ -1,3 +1,5 @@
+import React from "react";
+import VisuallyHidden from "@reach/visually-hidden";
 import styled from "styled-components";
 import { COLORS } from "constants.js";
 
@@ -6,9 +8,13 @@ import { ReactComponent as SendIcon } from "./send.svg";
 const InputArea = () => {
   return (
     <Wrapper>
-      <TextInput focus type="text" />
+      <VisuallyHidden as="label" htmlFor="chat-input">
+        Message
+      </VisuallyHidden>
+      <TextInput id="chat-input" type="text" />
       <SubmitButton>
-        <SendIcon />
+        <VisuallyHidden>Send</VisuallyHidden>
+        <SendIcon aria-hidden />
       </SubmitButton>
     </Wrapper>
   );

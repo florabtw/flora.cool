@@ -12,7 +12,7 @@ const Avatar = ({ className, size = "small" }) => {
 
   return (
     <Wrapper className={className} style={style}>
-      <StyledImage />
+      <StyledImage aria-label="Flora's witch avatar" role="image" />
     </Wrapper>
   );
 };
