@@ -5,14 +5,28 @@ import { COLORS } from "constants.js";
 
 import { ReactComponent as SendIcon } from "./send.svg";
 
-const InputArea = () => {
+const InputArea = ({ onSend }) => {
+  const [message, setMessage] = React.useState("");
+
+  const handleChange = (event) => setMessage(event.target.value);
+
+  const handleSubmit = () => {
+    onSend(message);
+    setMessage("");
+  };
+
   return (
     <Wrapper>
       <VisuallyHidden as="label" htmlFor="chat-input">
         Message
       </VisuallyHidden>
-      <TextInput id="chat-input" type="text" />
-      <SubmitButton>
+      <TextInput
+        id="chat-input"
+        onChange={handleChange}
+        type="text"
+        value={message}
+      />
+      <SubmitButton onClick={handleSubmit}>
         <VisuallyHidden>Send</VisuallyHidden>
         <SendIcon aria-hidden />
       </SubmitButton>

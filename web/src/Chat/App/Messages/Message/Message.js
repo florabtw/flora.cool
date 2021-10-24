@@ -21,14 +21,14 @@ const Message = ({ children, type }) => {
   return <MessageBubble style={style}>{children}</MessageBubble>;
 };
 
-const MessageBubble = styled.div`
+const MessageBubble = styled.li`
   align-self: var(--align-self);
   background: var(--background);
   border-radius: 24px;
   box-shadow: 0px 2px 4px hsl(0 0% 0% / 0.2);
   color: var(--color);
   max-width: 80%;
-  padding: 8px 12px;
+  padding: 8px 16px;
 `;
 
 export default Message;
