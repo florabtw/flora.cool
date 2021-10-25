@@ -18,7 +18,7 @@ const Avatar = ({ className, size = "small" }) => {
 };
 
 const Wrapper = styled.div`
-  background: hsl(0 0% 40%);
+  background: hsl(0 0% 30%);
   border-radius: 50%;
   height: var(--size);
   width: var(--size);
