@@ -4,6 +4,9 @@ import Bubble from "./Bubble";
 import Frame from "./Frame";
 import Window from "./Window";
 import flora from "Flora";
+import sparkleSrc from "./sparkle.wav";
+
+const sparkleAudio = new Audio(sparkleSrc);
 
 /* Cache <App /> in memo to prevent re-renders during mouse drag */
 const App = React.memo(({ dragged, open, setOpen }) => {
@@ -22,8 +25,11 @@ const App = React.memo(({ dragged, open, setOpen }) => {
   };
 
   React.useEffect(() => {
-    const handleMessage = (text) =>
-      handleNewMessage({ text, type: "received", unread: !open });
+    const handleMessage = (text) => {
+      const message = { text, type: "received", unread: !open };
+      handleNewMessage(message);
+      sparkleAudio.play();
+    };
 
     flora.addEventListener("message", handleMessage);
     return () => flora.removeEventListener("message", handleMessage);

@@ -1,6 +1,15 @@
 const sleep = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
 
 const flora = (() => {
+  const init = () => {
+    const handleFirstClick = () => {
+      intro();
+      window.removeEventListener("click", handleFirstClick);
+    };
+
+    window.addEventListener("click", handleFirstClick);
+  };
+
   const listeners = {
     message: [],
     navigate: [],
@@ -13,6 +22,10 @@ const flora = (() => {
 
   const event = (event, payload) =>
     listeners[event].map((listener) => listener(payload));
+
+  const intro = () => {
+    messageUser("Welcome to flora.cool!");
+  };
 
   const messageUser = async (message) => {
     event("typing", true);
@@ -33,9 +46,9 @@ const flora = (() => {
     await messageUser("Hello!");
   };
 
-  messageUser("Welcome to flora.cool!");
+  init();
 
-  return { addEventListener, removeEventListener, send };
+  return { addEventListener, intro, removeEventListener, send };
 })();
 
 export default flora;
