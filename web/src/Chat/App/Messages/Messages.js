@@ -1,11 +1,13 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+import useChat from "Chat/Context";
 import Message from "./Message";
 import flora from "Flora";
 
-const Messages = ({ messages }) => {
+const Messages = () => {
   const [typing, setTyping] = React.useState(false);
+  const { messages } = useChat();
 
   React.useEffect(() => {
     const handleTyping = (isTyping) => setTyping(isTyping);

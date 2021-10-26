@@ -4,12 +4,15 @@ import Avatar from "components/Avatar";
 import Heading from "components/Heading";
 import Page from "components/Page";
 import Section from "components/Section";
+import useChat from "Chat/Context";
 
 const Home = () => {
+  const { setOpen: setChatOpen } = useChat();
+
   return (
     <Page>
       <SectionStyled>
-        <PortraitImage size="large" />
+        <PortraitImage onClick={() => setChatOpen((o) => !o)} size="large" />
         <Heading align="center" level={1}>
           Flora Moon
         </Heading>
@@ -30,7 +33,12 @@ const Home = () => {
 };
 
 const PortraitImage = styled(Avatar)`
+  cursor: pointer;
   margin: 0 auto;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const SectionStyled = styled(Section)`

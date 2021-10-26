@@ -8,11 +8,11 @@ const SIZES = {
   large: { "--size": "120px" },
 };
 
-const Avatar = ({ className, size = "small" }) => {
+const Avatar = ({ className, onClick, size = "small" }) => {
   const style = { ...SIZES[size] };
 
   return (
-    <Wrapper className={className} style={style}>
+    <Wrapper className={className} onClick={onClick} style={style}>
       <StyledImage aria-label="Flora's witch avatar" role="image" />
     </Wrapper>
   );

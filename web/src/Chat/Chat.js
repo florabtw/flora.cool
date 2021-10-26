@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import styled from "styled-components";
 
 import App from "./App";
+import Bubble from "./Bubble";
 import Draggable from "components/Draggable";
+import Frame from "./Frame";
+import useChat from "Chat/Context";
 import useWindowSize from "./hooks";
 import { BREAKPOINTS } from "constants.js";
 
 const Chat = () => {
-  const [open, setOpen] = React.useState(false);
+  const { open } = useChat();
   const windowSize = useWindowSize();
 
   const isStretch = windowSize.width < BREAKPOINTS.chat.stretch;
@@ -23,7 +26,10 @@ const Chat = () => {
         }}
         position={position}
       >
-        <App open={open} setOpen={setOpen} />
+        <Bubble />
+        <Frame>
+          <App />
+        </Frame>
       </Draggable>
     </Overlay>,
     document.getElementById("chat")

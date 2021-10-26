@@ -1,19 +1,22 @@
 import React from "react";
 import VisuallyHidden from "@reach/visually-hidden";
 import styled from "styled-components";
+
+import useChat from "Chat/Context";
 import { COLORS } from "constants.js";
 
 import { ReactComponent as SendIcon } from "./send.svg";
 
-const InputArea = ({ onSend }) => {
+const InputArea = () => {
   const [message, setMessage] = React.useState("");
+  const { sendMessage } = useChat();
 
   const handleChange = (event) => setMessage(event.target.value);
 
   const handleKeyUp = (event) => event.key === "Enter" && handleSubmit();
 
   const handleSubmit = () => {
-    onSend(message);
+    sendMessage(message);
     setMessage("");
   };
 

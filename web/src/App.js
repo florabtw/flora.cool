@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
-import Chat from "Chat";
+import { ChatProvider } from "Chat/Context";
 import Routes from "Routes";
 
 const GlobalStyle = createGlobalStyle`
@@ -25,9 +25,10 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   return (
     <BrowserRouter>
-      <GlobalStyle />
-      <Routes />
-      <Chat />
+      <ChatProvider>
+        <GlobalStyle />
+        <Routes />
+      </ChatProvider>
     </BrowserRouter>
   );
 };

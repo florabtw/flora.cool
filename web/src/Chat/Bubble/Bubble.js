@@ -3,10 +3,15 @@ import VisuallyHidden from "@reach/visually-hidden";
 import styled from "styled-components";
 
 import Avatar from "components/Avatar";
+import useChat from "Chat/Context";
 import { COLORS } from "constants.js";
 
-const Bubble = ({ dragged, onClick, unread }) => {
-  const handleClick = () => !dragged && onClick();
+const Bubble = ({ dragged }) => {
+  const { messages, setOpen } = useChat();
+
+  const handleClick = () => !dragged && setOpen((o) => !o);
+
+  const unread = messages.filter((m) => m.unread).length;
 
   return (
     <FloatingButton data-draghandle onClick={handleClick}>
