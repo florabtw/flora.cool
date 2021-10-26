@@ -11,7 +11,7 @@ const Page = ({ children }) => {
 };
 
 const Wrapper = styled.div`
-  background: hsl(0 0% 15%);
+  background: ${COLORS.gray900};
   color: ${COLORS.textLight};
   height: 100%;
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { COLORS } from "constants.js";
 import { ReactComponent as Image } from "./avatar.svg";
 
 const SIZES = {
@@ -18,7 +19,7 @@ const Avatar = ({ className, size = "small" }) => {
 };
 
 const Wrapper = styled.div`
-  background: hsl(0 0% 30%);
+  background: ${COLORS.gray700};
   border-radius: 50%;
   height: var(--size);
   width: var(--size);

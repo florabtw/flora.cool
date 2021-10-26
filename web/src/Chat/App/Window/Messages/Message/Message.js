@@ -5,7 +5,7 @@ import { COLORS } from "constants.js";
 const STYLES = {
   received: {
     "--align-self": "flex-start",
-    "--background": "hsl(0 0% 35%)",
+    "--background": COLORS.gray600,
     "--color": COLORS.textLight,
   },
   sent: {

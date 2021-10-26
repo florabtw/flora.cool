@@ -44,7 +44,7 @@ const Wrapper = styled.div`
 `;
 
 const TextInput = styled.input`
-  background: hsl(0 0% 35%);
+  background: ${COLORS.gray600};
   border-radius: 20px;
   box-shadow: 0px 4px 8px hsl(0 0% 0% / 0.6);
   border: none;

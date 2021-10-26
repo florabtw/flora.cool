@@ -20,6 +20,7 @@ const Heading = ({ align = "left", children, level = 1 }) => {
 };
 
 const Styled = styled.h1`
+  font-family: "Fira Sans", sans-serif;
   text-align: var(--text-align, left);
 `;
 
