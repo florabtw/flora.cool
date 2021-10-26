@@ -4,6 +4,7 @@ import Avatar from "components/Avatar";
 import Heading from "components/Heading";
 import Page from "components/Page";
 import Section from "components/Section";
+import Text from "components/Text";
 import useChat from "Chat/Context";
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
           Hello! My name is Flora Moon, but it hasn't always been. I am a newly
           out trans woman and this is my website. I am also a software engineer
           looking for full-time remote employment, but my physical body will be
-          in Los Angeles. Thanks for visiting my website!
+          in Los Angeles. Thanks for visiting my site!
         </Text>
         <Text>
           Unfortunately, links don't work here so I will have to guide you
@@ -43,10 +44,6 @@ const PortraitImage = styled(Avatar)`
 
 const SectionStyled = styled(Section)`
   padding-top: 80px;
-`;
-
-const Text = styled.p`
-  line-height: 1.5;
 `;
 
 export default Home;
