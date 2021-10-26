@@ -1,6 +1,6 @@
 import Float from "./Float";
 import Stretch from "./Stretch";
-import useWindowSize from "../hooks";
+import useWindowSize from "../../hooks";
 import { BREAKPOINTS } from "constants.js";
 
 const Frame = (props) => {

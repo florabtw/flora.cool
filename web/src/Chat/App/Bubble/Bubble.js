@@ -5,11 +5,12 @@ import styled from "styled-components";
 import Avatar from "components/Avatar";
 import { COLORS } from "constants.js";
 
-const Bubble = ({ dragged, onClick }) => {
+const Bubble = ({ dragged, onClick, unread }) => {
   const handleClick = () => !dragged && onClick();
 
   return (
     <FloatingButton data-draghandle onClick={handleClick}>
+      {unread > 0 && <Badge>{unread}</Badge>}
       <VisuallyHidden>Open chat</VisuallyHidden>
       <Avatar />
     </FloatingButton>
@@ -37,6 +38,23 @@ const FloatingButton = styled.button`
   &:hover {
     transform: translate(-50%, -50%) scale(1.05);
   }
+`;
+
+const Badge = styled.span`
+  --size: 20px;
+
+  background: ${COLORS.primaryLight};
+  border-radius: 50%;
+  color: ${COLORS.textDark};
+  font-size: 0.75rem;
+  font-weight: bold;
+  height: var(--size);
+  left: 0;
+  line-height: var(--size);
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: var(--size);
 `;
 
 export default Bubble;

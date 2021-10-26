@@ -117,7 +117,7 @@ const Draggable = ({ children, defaultPosition, position: forcePosition }) => {
       style={style}
     >
       {React.Children.map(children, (child) =>
-        React.cloneElement(child, state)
+        React.cloneElement(child, { dragged: state.dragged })
       )}
     </DragArea>
   );
