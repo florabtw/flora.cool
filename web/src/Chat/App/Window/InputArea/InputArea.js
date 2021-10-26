@@ -10,6 +10,8 @@ const InputArea = ({ onSend }) => {
 
   const handleChange = (event) => setMessage(event.target.value);
 
+  const handleKeyUp = (event) => event.key === "Enter" && handleSubmit();
+
   const handleSubmit = () => {
     onSend(message);
     setMessage("");
@@ -23,6 +25,7 @@ const InputArea = ({ onSend }) => {
       <TextInput
         id="chat-input"
         onChange={handleChange}
+        onKeyUp={handleKeyUp}
         type="text"
         value={message}
       />
