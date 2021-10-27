@@ -18,6 +18,7 @@ export const COLORS = {
 
   textLight: "hsl(0 100% 100% / 0.87)",
   textDark: "hsl(0 0% 13.3%)",
+  textPrimary: "hsl(284 80% 80%)",
 };
 
 export const BREAKPOINTS = {

@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   background: ${COLORS.gray900};
   color: ${COLORS.textLight};
   height: 100%;
+  overflow: auto;
 `;
 
 const Main = styled.main``;
