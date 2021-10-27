@@ -24,9 +24,9 @@ const Home = () => {
           in Los Angeles. Thanks for visiting my site!
         </Text>
         <Text>
-          Unfortunately, links don't work here so I will have to guide you
-          around myself. If you'd like to learn more about me or my work, click
-          on my face to get started!
+          Unfortunately, my navigation bar seems to have gone missing, so I will
+          have to guide you around myself. If you'd like to learn more about me
+          or my work, click on my face to get started!
         </Text>
       </SectionStyled>
     </Page>

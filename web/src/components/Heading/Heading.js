@@ -14,6 +14,9 @@ const LEVEL = {
   2: {
     "--font-size": "2rem",
   },
+  3: {
+    "--font-size": "1.5rem",
+  },
 };
 
 const Heading = ({ align = "left", children, level = 1 }) => {

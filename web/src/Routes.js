@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 
-import Home from './Home';
+import About from "./About";
+import Home from "./Home";
 
 const Routes = () => {
   return (
@@ -8,8 +9,11 @@ const Routes = () => {
       <Route exact path="/">
         <Home />
       </Route>
+      <Route path="/about">
+        <About />
+      </Route>
     </Switch>
-  )
-}
+  );
+};
 
 export default Routes;
