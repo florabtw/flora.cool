@@ -63,13 +63,13 @@ const POSITION_STYLES = {
 
 const Styled = styled(Base)`
   display: var(--display);
-  height: 400px;
+  height: 500px;
   left: 0;
   position: absolute;
   top: 0;
   transform: translate(var(--horizontal), var(--vertical));
   transition: transform ease 300ms;
-  width: 300px;
+  width: 350px;
 `;
 
 export default Float;

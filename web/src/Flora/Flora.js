@@ -1,3 +1,5 @@
+import messages from "./messages";
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
 
 const flora = (() => {
@@ -41,9 +43,13 @@ const flora = (() => {
     listeners[event].splice(index, 1);
   };
 
-  const send = async (_message) => {
+  const send = async (message) => {
     await sleep(500);
-    await messageUser("Hello!");
+
+    const Found = messages.find(({ match }) => match(message));
+
+    if (Found) messageUser(<Found.Message />);
+    else messageUser("Hmm. I'm not sure what to say to that.");
   };
 
   init();

@@ -25,7 +25,7 @@ const Home = () => {
             trans woman
           </MessageLink>{" "}
           (she/they) and this is my{" "}
-          <MessageLink message="How did you built this site?">
+          <MessageLink message="How did you build this site?">
             website
           </MessageLink>
           . I am also a{" "}

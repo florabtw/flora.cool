@@ -27,7 +27,8 @@ const MessageBubble = styled.li`
   border-radius: 24px;
   box-shadow: 0px 2px 4px hsl(0 0% 0% / 0.2);
   color: var(--color);
-  max-width: 80%;
+  line-height: 1.5;
+  max-width: 85%;
   padding: 8px 16px;
 `;
 
