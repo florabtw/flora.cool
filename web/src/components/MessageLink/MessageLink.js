@@ -5,9 +5,12 @@ import useChat from "Chat/Context";
 import { ReactComponent as ChatBubble } from "./ChatBubble.svg";
 
 const MessageLink = ({ children, message }) => {
-  const { sendMessage } = useChat();
+  const { sendMessage, setOpen } = useChat();
 
-  const handleClick = () => sendMessage(message);
+  const handleClick = () => {
+    setOpen(true);
+    sendMessage(message);
+  };
 
   return (
     <Styled onClick={handleClick}>
