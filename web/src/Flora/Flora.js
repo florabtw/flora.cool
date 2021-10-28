@@ -1,17 +1,8 @@
-import messages from "./messages";
+import { messages } from "./messages";
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
 
 const flora = (() => {
-  const init = () => {
-    const handleFirstClick = () => {
-      intro();
-      window.removeEventListener("click", handleFirstClick);
-    };
-
-    window.addEventListener("click", handleFirstClick);
-  };
-
   const listeners = {
     message: [],
     navigate: [],
@@ -24,10 +15,6 @@ const flora = (() => {
 
   const event = (event, payload) =>
     listeners[event].map((listener) => listener(payload));
-
-  const intro = () => {
-    messageUser("Welcome to flora.cool!");
-  };
 
   const messageUser = async (message) => {
     event("typing", true);
@@ -43,18 +30,16 @@ const flora = (() => {
     listeners[event].splice(index, 1);
   };
 
-  const send = async (message) => {
+  const send = async (text) => {
     await sleep(500);
 
-    const Found = messages.find(({ match }) => match(message));
+    const Found = messages.find((msg) => msg.match(text));
 
     if (Found) messageUser(<Found.Message />);
     else messageUser("Hmm. I'm not sure what to say to that.");
   };
 
-  init();
-
-  return { addEventListener, intro, removeEventListener, send };
+  return { addEventListener, removeEventListener, send };
 })();
 
 export default flora;

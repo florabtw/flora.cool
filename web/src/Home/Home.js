@@ -7,6 +7,7 @@ import Page from "components/Page";
 import Section from "components/Section";
 import Text from "components/Text";
 import useChat from "Chat/Context";
+import { questions } from "Flora/messages";
 
 const Home = () => {
   const { setOpen: setChatOpen } = useChat();
@@ -21,53 +22,43 @@ const Home = () => {
         <Text>
           Hello! My name is Flora Moon, but it hasn't always been. I am a newly
           out{" "}
-          <MessageLink message="Can I ask about your transition?">
-            trans woman
-          </MessageLink>{" "}
+          <MessageLink message={questions.transition}>trans woman</MessageLink>{" "}
           (she/they) and this is my{" "}
-          <MessageLink message="How did you build this site?">
-            website
-          </MessageLink>
-          . I am also a{" "}
-          <MessageLink message="Where have you worked?">
+          <MessageLink message={questions.website}>website</MessageLink>. I am
+          also a{" "}
+          <MessageLink message={questions.employment}>
             software engineer
           </MessageLink>
           looking for full-time remote{" "}
-          <MessageLink message="Can I hire you?">employment</MessageLink>, but
+          <MessageLink message={questions.hire_me}>employment</MessageLink>, but
           my physical body will be in{" "}
-          <MessageLink message="Where else have you lived?">
-            Los Angeles
-          </MessageLink>
-          . Thanks for visiting my site!
+          <MessageLink message={questions.location}>Los Angeles</MessageLink>.
+          Thanks for visiting my site!
         </Text>
         <Text>
           I maintain a few side projects such as{" "}
-          <MessageLink message="Tell me about soundoftext.">
+          <MessageLink message={questions.soundoftext}>
             soundoftext.com
           </MessageLink>
           , a free text-to-speech service with 100k visits per months. Recently,
           I built{" "}
-          <MessageLink message="Tell me about Hearling.">Hearling</MessageLink>{" "}
-          which is a paid text-to-speech service with more voices and features.
-          I also have a passion-project called{" "}
-          <MessageLink message="Tell me about scape.fashion.">
+          <MessageLink message={questions.hearling}>Hearling</MessageLink> which
+          is a paid text-to-speech service with more voices and features. I also
+          have a passion-project called{" "}
+          <MessageLink message={questions.fashionscape}>
             scape.fashion
           </MessageLink>{" "}
           which helps people choose character outfits in Runescape.
         </Text>
         <Text>
           In my spare time I like to{" "}
-          <MessageLink message="roll a d20">play D&D</MessageLink>,{" "}
-          <MessageLink message="What have you read recently?">
-            read a book
-          </MessageLink>
-          , or log into my{" "}
-          <MessageLink message="What's your runescape username?">
-            runescape
-          </MessageLink>{" "}
+          <MessageLink message={questions.dnd}>play D&D</MessageLink>,{" "}
+          <MessageLink message={questions.reading}>read a book</MessageLink>, or
+          log into my{" "}
+          <MessageLink message={questions.username}>runescape</MessageLink>{" "}
           account. I have recently gotten into making my own{" "}
-          <MessageLink message="Can you make latte art?">lattes</MessageLink> at
-          home and learning how to do my makeup.
+          <MessageLink message={questions.lattes}>lattes</MessageLink> at home
+          and learning how to do my makeup.
         </Text>
       </SectionStyled>
     </Page>
