@@ -1,5 +1,8 @@
+import Attachment from "components/Attachment";
 import Link from "components/Link";
 import MessageLink from "components/MessageLink";
+
+import latteArtSrc from "./latte-heart.jpg";
 
 /* Relies on `this` being bound to caller. */
 function exactMatch(message) {
@@ -34,11 +37,11 @@ const database = {
     question: "Where have you worked?",
     Message: () => (
       <>
-        I have worked at{" "}
+        Most recently, I worked at Evernote. Before that, I worked at{" "}
         <MessageLink message={questions.asynchrony}>Asynchrony</MessageLink>,{" "}
-        <MessageLink message={questions.leapfin}>Leapfin</MessageLink>,
-        Redbubble, and Evernote. I have also spent time freelancing and working
-        on my own side business!
+        <MessageLink message={questions.leapfin}>Leapfin</MessageLink>, and
+        Redbubble. I have also spent time freelancing and working on my own side
+        business!
       </>
     ),
   },
@@ -145,18 +148,27 @@ const database = {
   },
   reading: {
     match: exactMatch,
-    question: "What have you read recently?",
-    Message: () => "",
-  },
-  username: {
-    match: exactMatch,
-    question: "What is your runescape username?",
-    Message: () => "",
+    question: "What are you reading?",
+    Message: () => (
+      <>
+        Right now, I'm reading "Because Internet" by Gretchen McCulloch. Add me
+        on{" "}
+        <Link to="https://app.thestorygraph.com/profile/floramoon">
+          StoryGraph
+        </Link>
+        !
+      </>
+    ),
   },
   lattes: {
     match: exactMatch,
     question: "Can you make latte art?",
-    Message: () => "",
+    Message: () => (
+      <>
+        Yes, but I only know how to make a heart!
+        <Attachment src={latteArtSrc} />
+      </>
+    ),
   },
 };
 

@@ -55,7 +55,7 @@ const Home = () => {
           <MessageLink message="roll a d20">play D&D</MessageLink>,{" "}
           <MessageLink message={questions.reading}>read a book</MessageLink>, or
           log into my{" "}
-          <MessageLink message={questions.username}>runescape</MessageLink>{" "}
+          <MessageLink message={questions.runescape}>runescape</MessageLink>{" "}
           account. I have recently gotten into making my own{" "}
           <MessageLink message={questions.lattes}>lattes</MessageLink> at home
           and learning how to do my makeup.

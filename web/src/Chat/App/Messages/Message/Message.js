@@ -22,6 +22,10 @@ const Message = ({ children, type }) => {
 };
 
 const MessageBubble = styled.li`
+  /* Used by <Attachment /> */
+  --inline-padding: 16px;
+  --block-padding: 8px;
+
   align-self: var(--align-self);
   background: var(--background);
   border-radius: 24px;
@@ -29,7 +33,8 @@ const MessageBubble = styled.li`
   color: var(--color);
   line-height: 1.5;
   max-width: 85%;
-  padding: 8px 16px;
+  overflow: hidden;
+  padding: var(--block-padding) var(--inline-padding);
 `;
 
 export default Message;
