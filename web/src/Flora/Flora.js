@@ -5,8 +5,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
 const flora = (() => {
   const listeners = {
     message: [],
-    navigate: [],
-    typing: [],
+    status: [],
   };
 
   const addEventListener = (event, cb) => {
@@ -16,12 +15,12 @@ const flora = (() => {
   const event = (event, payload) =>
     listeners[event].map((listener) => listener(payload));
 
-  const messageUser = async (message) => {
-    event("typing", true);
+  const messageUser = async ({ message, status = "typing" }) => {
+    event("status", status);
 
     await sleep(1000);
 
-    event("typing", false);
+    event("status", "none");
     event("message", message);
   };
 
@@ -33,10 +32,10 @@ const flora = (() => {
   const send = async (text) => {
     await sleep(500);
 
-    const Found = messages.find((msg) => msg.match(text));
+    const { Message, status } = messages.find((msg) => msg.match(text)) || {};
 
-    if (Found) messageUser(<Found.Message />);
-    else messageUser("Hmm. I'm not sure what to say to that.");
+    if (Message) messageUser({ message: <Message text={text} />, status });
+    else messageUser({ message: "Hmm. I'm not sure what to say to that." });
   };
 
   return { addEventListener, removeEventListener, send };

@@ -52,7 +52,7 @@ const Home = () => {
         </Text>
         <Text>
           In my spare time I like to{" "}
-          <MessageLink message={questions.dnd}>play D&D</MessageLink>,{" "}
+          <MessageLink message="roll a d20">play D&D</MessageLink>,{" "}
           <MessageLink message={questions.reading}>read a book</MessageLink>, or
           log into my{" "}
           <MessageLink message={questions.username}>runescape</MessageLink>{" "}

@@ -1,20 +1,23 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-import useChat from "Chat/Context";
 import Message from "./Message";
+import Status from "./Status";
 import flora from "Flora";
+import useChat from "Chat/Context";
 
 const Messages = () => {
-  const [typing, setTyping] = React.useState(false);
+  const [status, setStatus] = React.useState("none");
   const { messages } = useChat();
 
   React.useEffect(() => {
-    const handleTyping = (isTyping) => setTyping(isTyping);
+    const handleStatus = (status) => setStatus(status);
 
-    flora.addEventListener("typing", handleTyping);
-    return () => flora.removeEventListener("typing", handleTyping);
+    flora.addEventListener("status", handleStatus);
+    return () => flora.removeEventListener("status", handleStatus);
   }, []);
+
+  const StatusIndicator = Status[status];
 
   return (
     <KeepScrollBottom>
@@ -24,7 +27,8 @@ const Messages = () => {
             {text}
           </Message>
         ))}
-        {typing && <TypingIndicator />}
+
+        <StatusIndicator />
       </MessageList>
     </KeepScrollBottom>
   );
@@ -53,30 +57,6 @@ const MessageList = styled.ol`
   & li:first-child {
     margin-top: auto;
   }
-`;
-
-const TypingIndicator = () => (
-  <Message type="received">
-    <Wiggle aria-label="Flora is typing..." role="img">
-      ✏️
-    </Wiggle>
-  </Message>
-);
-
-const wiggle = keyframes`
-  from {
-    left: -1px;
-  }
-  to {
-    left: 3px;
-  }
-`;
-
-const Wiggle = styled.span`
-  animation: ${wiggle} 300ms linear infinite alternate;
-  display: inline-block;
-  padding: 0px 2px;
-  position: relative;
 `;
 
 export default Messages;

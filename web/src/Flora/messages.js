@@ -134,10 +134,14 @@ const database = {
       </>
     ),
   },
-  dnd: {
-    match: exactMatch,
-    question: "roll d20",
-    Message: () => "",
+  dice: {
+    match: (text) => /^roll a d(?:4|6|8|10|12|20)$/.test(text),
+    status: "dice",
+    Message: ({ text }) => {
+      let [, sides] = text.match(/d(\d{1,2})$/);
+      sides = Number(sides);
+      return Math.floor(Math.random() * sides) + 1;
+    },
   },
   reading: {
     match: exactMatch,
