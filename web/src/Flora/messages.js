@@ -10,6 +10,10 @@ function exactMatch(message) {
 }
 
 const database = {
+  hello: {
+    match: (text) => /^(?:Hey|Hi|Hello)(?:\.|!|\?)?$/.test(text),
+    Message: () => "Hi!",
+  },
   transition: {
     match: exactMatch,
     question: "When did you decide to transition?",

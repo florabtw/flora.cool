@@ -1,6 +1,16 @@
+import MessageLink from "components/MessageLink";
+
 import { messages } from "./messages";
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(() => resolve(), ms));
+
+const Intro = () => (
+  <>
+    Welcome to flora.cool! You can send me a message, but I only have a few
+    prepared responses. Try clicking on one of the provided prompts! They look
+    like this: <MessageLink message="Hello!">Hello!</MessageLink>
+  </>
+);
 
 const flora = (() => {
   const listeners = {
@@ -37,6 +47,8 @@ const flora = (() => {
     if (Message) messageUser({ message: <Message text={text} />, status });
     else messageUser({ message: "Hmm. I'm not sure what to say to that." });
   };
+
+  messageUser({ message: <Intro /> });
 
   return { addEventListener, removeEventListener, send };
 })();
