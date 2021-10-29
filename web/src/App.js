@@ -1,8 +1,7 @@
-import { BrowserRouter } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
 import { ChatProvider } from "Chat/Context";
-import Routes from "Routes";
+import Home from "./Home";
 
 const GlobalStyle = createGlobalStyle`
   * { box-sizing: border-box; }
@@ -24,12 +23,10 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <ChatProvider>
-        <GlobalStyle />
-        <Routes />
-      </ChatProvider>
-    </BrowserRouter>
+    <ChatProvider>
+      <GlobalStyle />
+      <Home />
+    </ChatProvider>
   );
 };
 
