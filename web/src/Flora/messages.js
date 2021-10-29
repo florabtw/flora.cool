@@ -14,6 +14,11 @@ const database = {
     match: (text) => /^(?:Hey|Hi|Hello)(?:\.|!|\?)?$/.test(text),
     Message: () => "Hi!",
   },
+  help: {
+    match: (text) => text.toLowerCase() === "help",
+    Message: () =>
+      "Sorry, I don't have any secret commands. Well, except this one...",
+  },
   transition: {
     match: exactMatch,
     question: "When did you decide to transition?",
