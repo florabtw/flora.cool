@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Avatar from "components/Avatar";
 import Heading from "components/Heading";
+import Link from "components/Link";
 import MessageLink from "components/MessageLink";
 import Page from "components/Page";
 import Section from "components/Section";
@@ -19,6 +20,13 @@ const Home = () => {
         <Heading align="center" level={1}>
           Flora Moon
         </Heading>
+        <Links>
+          <Link to="https://resume.flora.cool">resume</Link>
+          <Link to="https://twitter.com/floradotcool">twitter</Link>
+          <Link to="https://github.com/floradotcool">github</Link>
+          <Link to="https://www.linkedin.com/in/floradotcool/">linkedin</Link>
+          <Link to="mailto:hello@flora.cool">email</Link>
+        </Links>
         <Text>
           Hello! My name is Flora Moon, but it hasn't always been. I am a newly
           out{" "}
@@ -76,6 +84,15 @@ const PortraitImage = styled(Avatar)`
 
 const SectionStyled = styled(Section)`
   padding-top: 80px;
+`;
+
+const Links = styled.ul`
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 0;
+  list-style: none;
+  padding: 0;
 `;
 
 export default Home;
