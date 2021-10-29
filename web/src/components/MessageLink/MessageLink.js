@@ -15,7 +15,7 @@ const MessageLink = ({ children, message }) => {
   return (
     <Styled onClick={handleClick}>
       {children}
-      <ChatBubble />
+      <ChatBubble aria-label="message bubble" role="img" />
     </Styled>
   );
 };
