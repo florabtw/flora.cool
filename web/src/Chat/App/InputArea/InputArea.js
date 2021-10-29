@@ -16,6 +16,8 @@ const InputArea = () => {
   const handleKeyUp = (event) => event.key === "Enter" && handleSubmit();
 
   const handleSubmit = () => {
+    if (message.length === 0) return;
+
     sendMessage(message);
     setMessage("");
   };

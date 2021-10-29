@@ -12,6 +12,23 @@ const Intro = () => (
   </>
 );
 
+const Shrug = () => <>&#x1f937;&zwj;&#x2640;&#xFE0F;</>;
+
+const genericMessages = [
+  <>
+    Hmm. Not sure what to say to that <Shrug />
+  </>,
+  <>
+    Sorry, I can't answer that <Shrug />
+  </>,
+  <>
+    Uhh, I don't know that one <Shrug />
+  </>,
+];
+
+const random = (max) => Math.floor(Math.random() * max);
+const Unsure = () => genericMessages[random(genericMessages.length)];
+
 const flora = (() => {
   const listeners = {
     message: [],
@@ -45,7 +62,7 @@ const flora = (() => {
     const { Message, status } = messages.find((msg) => msg.match(text)) || {};
 
     if (Message) messageUser({ message: <Message text={text} />, status });
-    else messageUser({ message: "Hmm. I'm not sure what to say to that." });
+    else messageUser({ message: <Unsure /> });
   };
 
   messageUser({ message: <Intro /> });
