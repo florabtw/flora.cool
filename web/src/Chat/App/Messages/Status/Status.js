@@ -11,6 +11,7 @@ const Dice = (() => {
   const Spin = styled.span`
     animation: ${spin} 1s linear infinite;
     display: inline-block;
+    width: 1em;
   `;
 
   return () => (
