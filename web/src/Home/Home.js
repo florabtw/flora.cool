@@ -36,7 +36,7 @@ const Home = () => {
           also a{" "}
           <MessageLink message={questions.employment}>
             software engineer
-          </MessageLink>
+          </MessageLink>{" "}
           looking for full-time remote{" "}
           <MessageLink message={questions.hire_me}>employment</MessageLink>, but
           my physical body will be in{" "}

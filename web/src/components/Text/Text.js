@@ -10,12 +10,6 @@ const Styled = styled.p`
   & + & {
     margin-top: 1.5rem;
   }
-
-  @media (min-width: 980px) {
-    & {
-      font-size: 1.125rem;
-    }
-  }
 `;
 
 export default Text;

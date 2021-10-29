@@ -6,7 +6,7 @@ const Section = ({ children, className }) => {
 
 const Wrapper = styled.section`
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 748px;
   padding: 32px 24px;
 `;
 
