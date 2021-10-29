@@ -18,9 +18,10 @@ const Avatar = ({ className, onClick, size = "small" }) => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.span`
   background: ${COLORS.gray700};
   border-radius: 50%;
+  display: block;
   height: var(--size);
   width: var(--size);
 `;

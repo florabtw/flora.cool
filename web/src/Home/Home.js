@@ -8,6 +8,7 @@ import Page from "components/Page";
 import Section from "components/Section";
 import Text from "components/Text";
 import useChat from "Chat/Context";
+import { COLORS } from "constants.js";
 import { questions } from "Flora/messages";
 
 const Home = () => {
@@ -16,7 +17,9 @@ const Home = () => {
   return (
     <Page>
       <SectionStyled>
-        <PortraitImage onClick={() => setChatOpen((o) => !o)} size="large" />
+        <Portrait aria-label="Open chat" onClick={() => setChatOpen((o) => !o)}>
+          <Avatar size="large" />
+        </Portrait>
         <Heading align="center" level={1}>
           Flora Moon
         </Heading>
@@ -73,12 +76,22 @@ const Home = () => {
   );
 };
 
-const PortraitImage = styled(Avatar)`
+const Portrait = styled.button`
+  background: none;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
+  display: block;
   margin: 0 auto;
+  padding: 0;
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: 2px solid ${COLORS.primaryLight};
   }
 `;
 
