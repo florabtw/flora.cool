@@ -25,7 +25,7 @@ const database = {
     Message: () => (
       <>
         I have been questioning my gender for years, but my journey really
-        started in August 2021, when I started hormone therapy and come out to
+        started in August 2021, when I started hormone therapy and came out to
         friends and family.
       </>
     ),
