@@ -11,7 +11,7 @@ function exactMatch(message) {
 
 const database = {
   hello: {
-    match: (text) => /^(?:Hey|Hi|Hello)(?:\.|!|\?)?$/.test(text),
+    match: (text) => /^(?:hey|hi|hello)(?:\.|!|\?)?$/i.test(text),
     Message: () => "Hi!",
   },
   help: {
@@ -147,10 +147,10 @@ const database = {
     ),
   },
   dice: {
-    match: (text) => /^roll a d(?:4|6|8|10|12|20)$/.test(text),
+    match: (text) => /^roll a d(?:4|6|8|10|12|20)$/i.test(text),
     status: "dice",
     Message: ({ text }) => {
-      let [, sides] = text.match(/d(\d{1,2})$/);
+      let [, sides] = text.match(/d(\d{1,2})$/i);
       sides = Number(sides);
       return Math.floor(Math.random() * sides) + 1;
     },
