@@ -11,11 +11,11 @@ function exactMatch(message) {
 
 const database = {
   hello: {
-    match: (text) => /^(?:hey|hi|hello)(?:\.|!|\?)?$/i.test(text),
+    match: (text) => /^(?:hey|hi|hello|hola)(?:\.|!|\?)?$/i.test(text),
     Message: () => "Hi!",
   },
   bye: {
-    match: (text) => /(?:bye|goodbye)(?:\.|!|\?)?/i.test(text),
+    match: (text) => /(?:bye|goodbye|adios)(?:\.|!|\?)?/i.test(text),
     Message: () => "Bye!",
   },
   help: {
