@@ -14,6 +14,10 @@ const database = {
     match: (text) => /^(?:hey|hi|hello)(?:\.|!|\?)?$/i.test(text),
     Message: () => "Hi!",
   },
+  bye: {
+    match: (text) => /(?:bye|goodbye)(?:\.|!|\?)?/i.test(text),
+    Message: () => "Bye!",
+  },
   help: {
     match: (text) => text.toLowerCase() === "help",
     Message: () =>
