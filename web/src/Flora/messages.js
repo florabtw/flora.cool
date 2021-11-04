@@ -40,8 +40,8 @@ const database = {
     Message: () => (
       <>
         With React! You can find the{" "}
-        <Link to="https://github.com/floradotcool/flora.cool">source code</Link>{" "}
-        on Github.
+        <Link to="https://github.com/florabtw/flora.cool">source code</Link> on
+        Github.
       </>
     ),
   },

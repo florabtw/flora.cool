@@ -25,8 +25,8 @@ const Home = () => {
         </Heading>
         <Links>
           <Link to="https://resume.flora.cool">resume</Link>
-          <Link to="https://twitter.com/floradotcool">twitter</Link>
-          <Link to="https://github.com/floradotcool">github</Link>
+          <Link to="https://twitter.com/itsflorabtw">twitter</Link>
+          <Link to="https://github.com/florabtw">github</Link>
           <Link to="https://www.linkedin.com/in/floradotcool/">linkedin</Link>
           <Link to="mailto:hello@flora.cool">email</Link>
         </Links>
