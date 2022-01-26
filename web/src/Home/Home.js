@@ -40,9 +40,7 @@ const Home = () => {
           <MessageLink message={questions.employment}>
             software engineer
           </MessageLink>{" "}
-          looking for full-time remote{" "}
-          <MessageLink message={questions.hire_me}>employment</MessageLink>, but
-          my physical body will be in{" "}
+          working remotely for HubSpot, while my physical body is in{" "}
           <MessageLink message={questions.location}>Los Angeles</MessageLink>.
           Thanks for visiting my site!
         </Text>

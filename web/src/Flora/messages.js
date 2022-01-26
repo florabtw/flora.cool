@@ -81,18 +81,6 @@ const database = {
       </>
     ),
   },
-  hire_me: {
-    match: exactMatch,
-    question: "Can I hire you?",
-    Message: () => (
-      <>
-        Yes! I am open to front-end roles. I like solving difficult bugs,
-        creating design systems, and lots of autonomy. Check out my{" "}
-        <Link to="https://resume.flora.cool">resume</Link> and send me an{" "}
-        <Link to="mailto:hello@flora.cool">email</Link>.
-      </>
-    ),
-  },
   location: {
     match: exactMatch,
     question: "Where have you lived before?",
