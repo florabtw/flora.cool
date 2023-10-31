@@ -50,11 +50,11 @@ const database = {
     question: "Where have you worked?",
     Message: () => (
       <>
-        Most recently, I worked at Evernote. Before that, I worked at{" "}
+        Most recently, I worked at HubSpot. Before that, I worked at{" "}
         <MessageLink message={questions.asynchrony}>Asynchrony</MessageLink>,{" "}
-        <MessageLink message={questions.leapfin}>Leapfin</MessageLink>, and
-        Redbubble. I have also spent time freelancing and working on my own side
-        business!
+        <MessageLink message={questions.leapfin}>Leapfin</MessageLink>,
+        Redbubble, and Evernote. I have also spent time freelancing and working
+        on my own side business!
       </>
     ),
   },
@@ -87,8 +87,8 @@ const database = {
     Message: () => (
       <>
         Well, I grew up in the small town of Jefferson City, MO. I have also
-        lived in Saint Louis, San Francisco, Austin (TX), San Diego, and I will
-        be moving to Los Angeles in early 2022.
+        lived in Saint Louis, San Francisco, Austin (TX), San Diego, and Los
+        Angeles.
       </>
     ),
   },
@@ -149,11 +149,12 @@ const database = {
   },
   reading: {
     match: exactMatch,
-    question: "What are you reading?",
+    question: "What is your favorite book?",
     Message: () => (
       <>
-        Right now, I'm reading "Because Internet" by Gretchen McCulloch. Add me
-        on{" "}
+        I was a huge fan of the Eragon series when I was a kid. Still waiting
+        for a better movie remake... but honestly I mostly read nonfiction these
+        days. Add me on{" "}
         <Link to="https://app.thestorygraph.com/profile/floramoon">
           StoryGraph
         </Link>

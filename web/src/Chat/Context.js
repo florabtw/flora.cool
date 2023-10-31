@@ -26,7 +26,9 @@ const ChatProvider = ({ children }) => {
     const handleMessage = (text) => {
       const message = { text, type: "received", unread: !open };
       handleNewMessage(message);
-      sparkleAudio.play();
+      sparkleAudio
+        .play()
+        .catch(() => console.error("Unable to play new message tone."));
     };
 
     flora.addEventListener("message", handleMessage);

@@ -25,23 +25,22 @@ const Home = () => {
         </Heading>
         <Links>
           <Link to="https://resume.flora.cool">resume</Link>
-          <Link to="https://twitter.com/itsflorabtw">twitter</Link>
+          <Link to="https://instagram.com/itsflorabtw">insta</Link>
           <Link to="https://github.com/florabtw">github</Link>
-          <Link to="https://www.linkedin.com/in/floradotcool/">linkedin</Link>
+          <Link to="https://www.linkedin.com/in/florabtw/">linkedin</Link>
           <Link to="mailto:hello@flora.cool">email</Link>
         </Links>
         <Text>
-          Hello! My name is Flora Moon, but it hasn't always been. I am a newly
-          out{" "}
+          Hello! My name is Flora, but it hasn't always been. I am a queer{" "}
           <MessageLink message={questions.transition}>trans woman</MessageLink>{" "}
-          (she/they) and this is my{" "}
+          and this is my{" "}
           <MessageLink message={questions.website}>website</MessageLink>. I am
           also a{" "}
           <MessageLink message={questions.employment}>
             software engineer
           </MessageLink>{" "}
-          working remotely for HubSpot, while my physical body is in{" "}
-          <MessageLink message={questions.location}>Los Angeles</MessageLink>.
+          with about 8 years of experience, living in{" "}
+          <MessageLink message={questions.location}>Portland</MessageLink>.
           Thanks for visiting my site!
         </Text>
         <Text>
@@ -57,17 +56,16 @@ const Home = () => {
           <MessageLink message={questions.fashionscape}>
             scape.fashion
           </MessageLink>{" "}
-          which helps people choose character outfits in Runescape.
+          which helps people choose character outfits in the Runescape.
         </Text>
         <Text>
           In my spare time I like to{" "}
-          <MessageLink message="roll a d20">play D&D</MessageLink>,{" "}
+          <MessageLink message="roll a d20">run D&D games</MessageLink>,{" "}
           <MessageLink message={questions.reading}>read a book</MessageLink>, or
           log into my{" "}
           <MessageLink message={questions.runescape}>runescape</MessageLink>{" "}
-          account. I have recently gotten into making my own{" "}
-          <MessageLink message={questions.lattes}>lattes</MessageLink> at home
-          and learning how to do my makeup.
+          account. I have also recently gotten into making my own{" "}
+          <MessageLink message={questions.lattes}>lattes</MessageLink> at home!
         </Text>
       </SectionStyled>
     </Page>
