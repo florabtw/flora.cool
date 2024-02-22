@@ -73,6 +73,8 @@ const Draggable = ({ children, defaultPosition, position: forcePosition }) => {
     if (!handle) throw new Error("Could not find a drag handle");
     if (!handle.contains(event.target)) return;
 
+    event.preventDefault();
+
     dispatch({ type: "start" });
   };
 
