@@ -63,11 +63,13 @@ const database = {
     question: "Who is Asynchrony?",
     Message: () => (
       <>
-        <Link to="https://www.linkedin.com/company/asynchrony-solutions/">
-          Asynchrony Labs
+        Asynchrony Labs was a consulting firm in Saint Louis. I worked on a huge
+        variety of projects while I was there, but mostly in Java or Scala.
+        Asynchrony was{" "}
+        <Link to="https://www.wwt.com/press-release/wwt-acquires-agile-software-development-consulting-firm-asynchrony">
+          acquired
         </Link>{" "}
-        was a consulting firm in Saint Louis. I worked on a huge variety of
-        projects while I was there, but mostly in Java or Scala.
+        by WWT and no longer exists.
       </>
     ),
   },

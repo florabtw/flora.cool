@@ -25,23 +25,24 @@ const Home = () => {
         </Heading>
         <Links>
           <Link to="https://resume.flora.cool">resume</Link>
-          <Link to="https://instagram.com/itsflorabtw">insta</Link>
           <Link to="https://github.com/florabtw">github</Link>
           <Link to="https://www.linkedin.com/in/florabtw/">linkedin</Link>
           <Link to="mailto:hello@flora.cool">email</Link>
+          <Link to="https://instagram.com/itsflorabtw">insta</Link>
         </Links>
         <Text>
-          Hello! My name is Flora, but it hasn't always been. I am a queer{" "}
+          Hello! My name is Flora and this is my personal{" "}
+          <MessageLink message={questions.website}>website</MessageLink>. You
+          can click the links to start a chat with me, but keep in mind that I
+          built this site before conversational AI was cool 😛. I am a queer{" "}
           <MessageLink message={questions.transition}>trans woman</MessageLink>{" "}
-          and this is my{" "}
-          <MessageLink message={questions.website}>website</MessageLink>. I am
-          also a{" "}
+          and a{" "}
           <MessageLink message={questions.employment}>
             software engineer
           </MessageLink>{" "}
-          with about 8 years of experience, living in{" "}
-          <MessageLink message={questions.location}>Portland</MessageLink>.
-          Thanks for visiting my site!
+          with about 8 years of experience. I live in{" "}
+          <MessageLink message={questions.location}>Portland, OR</MessageLink>.
+          Thanks for stopping by!
         </Text>
         <Text>
           I maintain a few side projects such as{" "}
@@ -56,7 +57,8 @@ const Home = () => {
           <MessageLink message={questions.fashionscape}>
             scape.fashion
           </MessageLink>{" "}
-          which helps people choose character outfits in the Runescape.
+          which helps people choose character outfits in the video game,
+          RuneScape.
         </Text>
         <Text>
           In my spare time I like to{" "}

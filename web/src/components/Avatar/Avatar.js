@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { COLORS } from "constants.js";
-import { ReactComponent as Image } from "./avatar.svg";
+import avatar from "./avatar.webp";
 
 const SIZES = {
   small: { "--size": "60px" },
@@ -13,20 +13,21 @@ const Avatar = ({ className, onClick, size = "small" }) => {
 
   return (
     <Wrapper className={className} onClick={onClick} style={style}>
-      <StyledImage aria-label="Flora's witch avatar" role="image" />
+      <StyledImg src={avatar} />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.span`
-  background: ${COLORS.gray700};
+  background: ${COLORS.primaryLight};
   border-radius: 50%;
   display: block;
   height: var(--size);
   width: var(--size);
 `;
 
-const StyledImage = styled(Image)`
+const StyledImg = styled.img`
+  border-radius: 50%;
   height: 100%;
   width: 100%;
 `;
