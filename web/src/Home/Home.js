@@ -30,6 +30,11 @@ const Home = () => {
           <Link to="mailto:hello@flora.cool">email</Link>
           <Link to="https://instagram.com/itsflorabtw">insta</Link>
         </Links>
+        <Alert>
+          Hire me! Check out my{" "}
+          <Link to="https://resume.flora.cool">resume</Link> and send me an{" "}
+          <Link to="mailto:hello@flora.cool">email</Link>.
+        </Alert>
         <Text>
           Hello! My name is Flora and this is my personal{" "}
           <MessageLink message={questions.website}>website</MessageLink>. You
@@ -73,6 +78,28 @@ const Home = () => {
     </Page>
   );
 };
+
+function Alert({ children }) {
+  return (
+    <AlertWrapper>
+      <AlertIcon>⚠️</AlertIcon> {children}
+    </AlertWrapper>
+  );
+}
+
+const AlertWrapper = styled.div`
+  background: ${COLORS.primaryDark};
+  border-radius: 0.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  padding: 0.625rem;
+
+  a {
+    color: white;
+  }
+`;
+
+const AlertIcon = styled.span``;
 
 const Portrait = styled.button`
   background: none;
